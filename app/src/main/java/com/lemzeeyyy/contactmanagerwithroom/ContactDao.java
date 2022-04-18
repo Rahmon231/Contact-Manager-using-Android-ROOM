@@ -1,5 +1,6 @@
 package com.lemzeeyyy.contactmanagerwithroom;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -18,7 +19,7 @@ public interface ContactDao {
     void deleteAll();
 
     @Query("SELECT * FROM contact_table ORDER BY NAME ASC")
-    List<Contact> getAll();
+    LiveData<List<Contact>> getAll();
 
 
 }
