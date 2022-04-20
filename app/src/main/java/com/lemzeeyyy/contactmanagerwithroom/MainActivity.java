@@ -83,8 +83,5 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         intent.putExtra(CONTACT_ID,contact.getId());
         startActivity(intent);
 
-
-
-
     }
 }
