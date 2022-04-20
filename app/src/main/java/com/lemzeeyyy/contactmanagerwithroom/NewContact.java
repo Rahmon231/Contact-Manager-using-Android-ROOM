@@ -35,7 +35,6 @@ public class NewContact extends AppCompatActivity {
         contactViewModel = new ViewModelProvider.AndroidViewModelFactory(NewContact.this
                 .getApplication())
                 .create(ContactViewModel.class);
-        Bundle data = getIntent().getExtras();
             if (getIntent().hasExtra(MainActivity.CONTACT_ID)) {
                 contactId = getIntent().getIntExtra(MainActivity.CONTACT_ID,0);
 //                int id = data.getInt(MainActivity.CONTACT_ID);
