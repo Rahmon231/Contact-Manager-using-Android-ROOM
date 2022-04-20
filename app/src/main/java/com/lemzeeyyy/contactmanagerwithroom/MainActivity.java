@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
     public static final int START_ACTIVITY_REQUEST_CODE = 1;
     private ContactViewModel contactViewModel;
     private FloatingActionButton fab ;
-    private TextView showDBContent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fab = findViewById(R.id.addContactFab);
-        showDBContent = findViewById(R.id.text);
+
         contactViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this
                 .getApplication())
                 .create(ContactViewModel.class);
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
             StringBuilder stringBuilder = new StringBuilder();
             for (Contact contact :
                     contacts) {
-                stringBuilder.append("-"+contact.getName()+" "+"-"+contact.getOccupation());
+                stringBuilder.append("-").append(contact.getName()).append(" ").append("-").append(contact.getOccupation());
             }
-            showDBContent.setText(stringBuilder);
+
         });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         Contact contact = new Contact(name, occupation);
         ContactViewModel.insert(contact);
+
         }
     }
 }
