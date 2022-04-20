@@ -1,6 +1,7 @@
 package com.lemzeeyyy.contactmanagerwithroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ public class NewContact extends AppCompatActivity {
     private EditText enterOccupation;
     private Button saveBtn;
     private ContactViewModel contactViewModel;
+    private int contactId = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +50,13 @@ public class NewContact extends AppCompatActivity {
             finish();
 
         });
+        Bundle data = getIntent().getExtras();
+        if(data!=null){
+            int id = data.getInt(MainActivity.CONTACT_ID);
+            contactViewModel.getContact(id).observe(this, contact -> {
+                enterName.setText(contact.getName());
+                enterOccupation.setText(contact.getOccupation());
+            });
+        }
     }
 }

@@ -44,16 +44,14 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
                         ContactDao contactDao = INSTANCE.contactDao();
                         contactDao.deleteAll();
 
-                        Contact contact = new Contact("Lemzy","Engineer");
-                        contactDao.insert(contact);
-
-                        contact = new Contact("Kaothar","Business");
-                        contactDao.insert(contact);
-
-                        contact = new Contact("Rahmon","Programmer");
-                        contactDao.insert(contact);
-
-
+//                        Contact contact = new Contact("Lemzy","Engineer");
+//                        contactDao.insert(contact);
+//
+//                        contact = new Contact("Kaothar","Business");
+//                        contactDao.insert(contact);
+//
+//                        contact = new Contact("Rahmon","Programmer");
+//                        contactDao.insert(contact);
                     });
                 }
             };
