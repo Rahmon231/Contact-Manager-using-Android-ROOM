@@ -84,6 +84,25 @@ public class NewContact extends AppCompatActivity {
 
         });
         deleteBtn = findViewById(R.id.delete_btn);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = contactId;
+                String name = enterName.getText().toString().trim();
+                String occupation = enterOccupation.getText().toString().trim();
+                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(occupation)){
+                    Snackbar.make(enterName,R.string.empty, Snackbar.LENGTH_SHORT)
+                            .show();
+                }else{
+                    Contact contact = new Contact();
+                    contact.setId(id);
+                    contact.setName(name);
+                    contact.setOccupation(occupation);
+                    ContactViewModel.delete(contact);
+                    finish();
+                }
+            }
+        });
 
         if(isEdit){
             saveBtn.setVisibility(View.GONE);
